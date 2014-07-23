@@ -1,0 +1,24 @@
+{
+    "name": "hostbox/api-payu-nette-bridge",
+    "description": "Nette bridge for PayU API",
+    "keywords": ["bridge", "nette", "payu", "api"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Pavel Macháň",
+            "email": "machan@hostbox.cz"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "HostBox\\Bridge\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=5.3.0",
+        "nette/di": "~2.2.0"
+    },
+    "require-dev": {
+        "nette/tester": "~1.0"
+    }
+}
