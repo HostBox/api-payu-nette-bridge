@@ -1,0 +1,5 @@
+payu:
+	posId: '123456789'
+	posAuthKey: 'qwertyuiop'
+	key1: 'asdfghjkl'
+	key2: 'zxcvbnm'
