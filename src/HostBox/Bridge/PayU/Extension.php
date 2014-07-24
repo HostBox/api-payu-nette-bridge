@@ -13,10 +13,7 @@ class Extension extends CompilerExtension {
         $container = $this->getContainerBuilder();
         $config = $this->getConfig();
 
-
-        $params = array('posId', 'posAuthKey', 'key1', 'key2');
-
-        if ($diff = array_diff($params, array_keys($config))) {
+        if ($diff = array_diff(array('posId', 'posAuthKey', 'key1', 'key2'), array_keys($config))) {
             throw new InvalidArgumentException('Missing configuration: ' . implode(', ', $diff));
         }
 
@@ -30,4 +27,5 @@ class Extension extends CompilerExtension {
         $container->addDefinition($this->prefix('payu'))
             ->setClass('HostBox\Api\PayU\PayU');
     }
+
 }
