@@ -1,5 +1,20 @@
-payu:
+single:
 	posId: '123456789'
 	posAuthKey: 'qwertyuiop'
 	key1: 'asdfghjkl'
 	key2: 'zxcvbnm'
+	format: 'txt'
+
+multi:
+	first:
+		posId: '123456789'
+		posAuthKey: 'qwertyuiop'
+		key1: 'asdfghjkl'
+		key2: 'zxcvbnm'
+	second:
+		posId: '987654321'
+		posAuthKey: 'poiuytrewq'
+		key1: 'lkjhgfdsa'
+		key2: 'mnbvcxz'
+		encoding: 'ISO'
+		format: 'txt'

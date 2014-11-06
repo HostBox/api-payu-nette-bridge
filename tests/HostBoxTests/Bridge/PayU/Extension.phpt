@@ -1,7 +1,8 @@
 <?php
 
-namespace HostBoxTests\Api\PayU;
+namespace HostBoxTests\Bridge\PayU;
 
+use HostBox\Api\PayU;
 use HostBox\Bridge\PayU\Extension;
 use Nette\Configurator;
 use Nette\DI\Compiler;
@@ -18,7 +19,8 @@ class ExtensionTest extends TestCase {
         $configurator = new Configurator();
         $configurator->setTempDirectory(TEMP_DIR);
         $configurator->onCompile[] = function ($config, Compiler $compiler) {
-            $compiler->addExtension('payu', new Extension());
+            $compiler->addExtension('single', new Extension());
+            $compiler->addExtension('multi', new Extension());
         };
         $configurator->addConfig(__DIR__ . '/files/config.neon');
 
@@ -26,12 +28,25 @@ class ExtensionTest extends TestCase {
     }
 
     /** @return void */
-    public function testServices() {
+    public function testSingleService() {
         $dic = $this->createContainer();
 
-        Assert::true($dic->getService('payu.config') instanceof \HostBox\Api\PayU\Config);
-        Assert::true($dic->getService('payu.connection') instanceof \HostBox\Api\PayU\Connection);
-        Assert::true($dic->getService('payu.payu') instanceof \HostBox\Api\PayU\PayU);
+        Assert::true(($config = $dic->getService('single.default.config')) instanceof PayU\Config);
+        Assert::true($dic->getService('single.default.connection') instanceof PayU\Connection);
+        Assert::true($dic->getService('single.default') instanceof PayU\PayU);
+        /** @var PayU\IConfig $config */
+        Assert::same('txt', $config->getFormat());
+    }
+
+    /** @return void */
+    public function testMultiService() {
+        $dic = $this->createContainer();
+
+        Assert::true(($config = $dic->getService('multi.second.config')) instanceof PayU\Config);
+        Assert::true($dic->getService('multi.second.connection') instanceof PayU\Connection);
+        Assert::true($dic->getService('multi.second') instanceof PayU\PayU);
+        /** @var PayU\IConfig $config */
+        Assert::same('ISO', $config->getEncoding());
     }
 
 }
