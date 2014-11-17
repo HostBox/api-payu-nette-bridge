@@ -19,7 +19,7 @@ or manual edit composer.json in your project
 
 ```json
 "require": {
-    "hostbox/api-payu": "@dev"
+    "hostbox/api-payu": "@dev",
     "hostbox/api-payu-nette-bridge": "~1.0.0"
 }
 ```
@@ -46,8 +46,8 @@ payu:
 	key2: 'zxcvbnm'
 
 services:
-    - MyService
-    - MyService(@payu.default) #manual inject
+    - MyFirstService
+    - MySecondService(@payu.default) #manual inject
 ```
 
 **Configuration: Multi POS**
