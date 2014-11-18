@@ -15,11 +15,11 @@
         }
     },
     "require": {
-        "nette/di": "~2.2.0",
+        "nette/di": "~2.2",
         "hostbox/api-payu": "@dev"
     },
     "require-dev": {
         "nette/tester": "~1.0",
-        "nette/nette": "~2.2.0"
+        "nette/nette": "~2.2"
     }
 }
