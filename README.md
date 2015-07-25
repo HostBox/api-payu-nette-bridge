@@ -7,7 +7,6 @@ Package Installation
 The best way to install Social Plugins is using [Composer](http://getcomposer.org/):
 
 ```sh
-$ composer require hostbox/api-payu @dev
 $ composer require hostbox/api-payu-nette-bridge
 ```
 
@@ -19,8 +18,7 @@ or manual edit composer.json in your project
 
 ```json
 "require": {
-    "hostbox/api-payu": "@dev",
-    "hostbox/api-payu-nette-bridge": "~1.0.0"
+    "hostbox/api-payu-nette-bridge": "~1.1.0"
 }
 ```
 

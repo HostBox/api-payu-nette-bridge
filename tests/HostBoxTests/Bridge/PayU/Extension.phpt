@@ -37,7 +37,7 @@ class ExtensionTest extends TestCase
 		Assert::true(($config = $dic->getService('single.default.config')) instanceof PayU\Config);
 		Assert::true($dic->getService('single.default.connection') instanceof PayU\Connection);
 		Assert::true($dic->getService('single.default') instanceof PayU\PayU);
-		/** @var PayU\IConfig $config */
+		/** @var PayU\Config $config */
 		Assert::same('txt', $config->getFormat());
 	}
 
@@ -49,7 +49,7 @@ class ExtensionTest extends TestCase
 		Assert::true(($config = $dic->getService('multi.second.config')) instanceof PayU\Config);
 		Assert::true($dic->getService('multi.second.connection') instanceof PayU\Connection);
 		Assert::true($dic->getService('multi.second') instanceof PayU\PayU);
-		/** @var PayU\IConfig $config */
+		/** @var PayU\Config $config */
 		Assert::same('ISO', $config->getEncoding());
 	}
 

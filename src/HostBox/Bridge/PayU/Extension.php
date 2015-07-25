@@ -2,7 +2,7 @@
 
 namespace HostBox\Bridge\PayU;
 
-use HostBox\Api\PayU\IConfig;
+use HostBox\Api\PayU\Config;
 use Nette\DI\CompilerExtension;
 use Nette\InvalidArgumentException;
 
@@ -15,8 +15,8 @@ class Extension extends CompilerExtension
 	{
 		$optionKeys = array('posId', 'posAuthKey', 'key1', 'key2', 'encoding', 'format');
 		$defaultOptions = array(
-			'encoding' => IConfig::ENCODING_UTF_8,
-			'format' => IConfig::FORMAT_XML
+			'encoding' => Config::ENCODING_UTF_8,
+			'format' => Config::FORMAT_XML
 		);
 
 		$container = $this->getContainerBuilder();
