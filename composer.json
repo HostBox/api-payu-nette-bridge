@@ -16,7 +16,7 @@
 	},
 	"require": {
 		"nette/di": "~2.2",
-		"hostbox/api-payu": "@dev"
+		"hostbox/api-payu": "dev-master#8928f5cfcd6ce0830b964dc7ae79f26d02320517"
 	},
 	"require-dev": {
 		"nette/tester": "~1.0",
