@@ -1,8 +1,8 @@
 <?php
 
 if (@!include __DIR__ . '/../../vendor/autoload.php') {
-    echo 'Install Nette Tester using `composer update --dev`';
-    exit(1);
+	echo 'Install Nette Tester using `composer update --dev`';
+	exit(1);
 }
 
 Tester\Environment::setup();
@@ -17,43 +17,50 @@ $_SERVER['REQUEST_TIME'] = 1234567890;
 $_ENV = $_GET = $_POST = array();
 
 if (extension_loaded('xdebug')) {
-    xdebug_disable();
-    Tester\CodeCoverage\Collector::start(__DIR__ . '/coverage.dat');
+	xdebug_disable();
+	Tester\CodeCoverage\Collector::start(__DIR__ . '/coverage.dat');
 }
 
-function id($val) {
-    return $val;
+function id($val)
+{
+	return $val;
 }
 
-function run(Tester\TestCase $testCase) {
-    $testCase->run(isset($_SERVER['argv'][1]) ? $_SERVER['argv'][1] : NULL);
+function run(Tester\TestCase $testCase)
+{
+	$testCase->run(isset($_SERVER['argv'][1]) ? $_SERVER['argv'][1] : NULL);
 }
 
-class Notes {
-    static public $notes = array();
+class Notes
+{
+	static public $notes = array();
 
-    public static function add($message) {
-        self::$notes[] = $message;
-    }
+	public static function add($message)
+	{
+		self::$notes[] = $message;
+	}
 
-    public static function fetch() {
-        $res = self::$notes;
-        self::$notes = array();
+	public static function fetch()
+	{
+		$res = self::$notes;
+		self::$notes = array();
 
-        return $res;
-    }
+		return $res;
+	}
 
 }
 
-function before(\Closure $function = NULL) {
-    static $val;
-    if (!func_num_args()) {
-        return ($val ? $val() : NULL);
-    }
-    $val = $function;
+function before(\Closure $function = NULL)
+{
+	static $val;
+	if (!func_num_args()) {
+		return ($val ? $val() : NULL);
+	}
+	$val = $function;
 }
 
-function test(\Closure $function) {
-    before();
-    $function();
+function test(\Closure $function)
+{
+	before();
+	$function();
 }
